@@ -52,11 +52,10 @@ const SearchRelationship = () => {
       <p className=" text-gray-500">Find relationship between two members</p>
       <Field>
         <Label>Select member</Label>
-        <Select options={options} onChange={(selectionValue) => {
-          if (selectionValue.label !== undefined) {
-            setRelative(selectionValue.label as string)
-            setshouldShowSearchResult(false)
-            // console.log(selectionValue.label)
+        <Select options={options} onChange={(selectionValue: { value: string; label: string } | null) => {
+          if (selectionValue && selectionValue.label !== undefined) {
+            setRelative(selectionValue.label);
+            setshouldShowSearchResult(false);
           }
         }}></Select>
         {/* <Combobox
@@ -93,11 +92,10 @@ const SearchRelationship = () => {
           ))}
         </Combobox> */}
 
-        <Select options={options} onChange={(selectionValue) => {
-          if (selectionValue?.label !== undefined) {
-            setRelative(selectionValue.label as string)
-            setshouldShowSearchResult(false)
-            // console.log(selectionValue.label)
+        <Select options={options} onChange={(selectionValue: { value: string; label: string } | null) => {
+          if (selectionValue && selectionValue.label !== undefined) {
+            setRelative(selectionValue.label);
+            setshouldShowSearchResult(false);
           }
         }}>
 
