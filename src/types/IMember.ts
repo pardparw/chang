@@ -5,5 +5,4 @@ export interface IMember {
   gender: Gender
   spouse: IMember | null
   children: IMember[]
-  status: number
 }

@@ -23,7 +23,6 @@ export class FamilyTree {
     targetName: string,
     targetGender: Gender,
     relationship: AllowedRelationship,
-    Status: number,
   ): Member {
     let source: Member | null = null
 

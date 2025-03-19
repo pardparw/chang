@@ -27,6 +27,7 @@ export const FamilyTreeProvider = ({ children }: { children: ReactNode }) => {
     setFamilyTree: setFamilyTree,
     root: familyTree.root,
     memberNames: familyTree.getMemberNames(),
+
   }
   return (
     <FamilyTreeContext.Provider value={value}>

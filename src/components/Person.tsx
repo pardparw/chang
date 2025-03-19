@@ -17,7 +17,7 @@ export const Person = ({ member, isDescendant = true }: IPersonProps) => {
     return null
   }
 
-  const { name, gender, status } = member
+  const { name, gender } = member
   const handleOnClick = () => {
     setSourceMember(member)
     setIsModalVisible(true)
@@ -41,7 +41,7 @@ export const Person = ({ member, isDescendant = true }: IPersonProps) => {
         isDescendant={isDescendant}
       />
       <p className="m-0 text-gray-500">{member.name}</p>
-      <p className="m-0 text-gray-500">{member.status}</p>
+
     </div>
   )
 }
