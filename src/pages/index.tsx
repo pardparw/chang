@@ -22,7 +22,7 @@ export default function Home() {
       <h1 className="text-4xl font-medium mb-10 text-slate-700">Family Tree</h1>
       <div className="max-w-2xl mx-auto mb-8 ">
         <h3 className="text-lg font-semibold text-gray-900 ">
-          Welcome to the Shan family tree
+          Welcome to Changphan tree
         </h3>
         <p className="my-4 text-gray-500">
           Click on any one of the family members to add a child or a spouse.
