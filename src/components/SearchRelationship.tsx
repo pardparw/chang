@@ -6,8 +6,9 @@ import {
   Label,
   Option,
 } from '@zendeskgarden/react-dropdowns.next'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useFamilyTree } from '@/components/FamilyTreeProvider'
+import Select from "react-select";
 
 const SearchRelationship = () => {
   const [member, setMember] = useState<string>('')
@@ -28,6 +29,19 @@ const SearchRelationship = () => {
       alert(error)
     }
   }
+  const [options, SetOption] = useState([]);
+
+  useEffect(() => {
+    let val: any = [];
+
+    {
+      memberNames.map((memberName, index) => (
+        val.push({ value: `id${index}`, label: memberName },)
+      ))
+    }
+
+    SetOption(val)
+  }, [])
 
   return (
     <form
@@ -38,7 +52,14 @@ const SearchRelationship = () => {
       <p className=" text-gray-500">Find relationship between two members</p>
       <Field>
         <Label>Select member</Label>
-        <Combobox
+        <Select options={options} onChange={(selectionValue) => {
+          if (selectionValue?.label !== undefined) {
+            setRelative(selectionValue.label as string)
+            setshouldShowSearchResult(false)
+            // console.log(selectionValue.label)
+          }
+        }}></Select>
+        {/* <Combobox
           isEditable={false}
           onChange={({ selectionValue }) => {
             if (selectionValue !== undefined) {
@@ -52,11 +73,11 @@ const SearchRelationship = () => {
           {memberNames.map((memberName) => (
             <Option key={memberName} value={memberName} label={memberName} />
           ))}
-        </Combobox>
+        </Combobox> */}
       </Field>
       <Field>
         <Label>Select relative</Label>
-        <Combobox
+        {/* <Combobox
           isEditable={false}
           onChange={({ selectionValue }) => {
             if (selectionValue !== undefined) {
@@ -70,7 +91,17 @@ const SearchRelationship = () => {
           {memberNames.map((memberName) => (
             <Option key={memberName} value={memberName} label={memberName} />
           ))}
-        </Combobox>
+        </Combobox> */}
+
+        <Select options={options} onChange={(selectionValue) => {
+          if (selectionValue?.label !== undefined) {
+            setRelative(selectionValue.label as string)
+            setshouldShowSearchResult(false)
+            // console.log(selectionValue.label)
+          }
+        }}>
+
+        </Select>
       </Field>
 
       <Field className="mt-2">
