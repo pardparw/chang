@@ -29,7 +29,7 @@ const SearchRelationship = () => {
       alert(error)
     }
   }
-  const [options, SetOption] = useState([]);
+  const [options, SetOption] = useState<any[]>([])
 
   useEffect(() => {
     let val: any = [];
@@ -53,7 +53,7 @@ const SearchRelationship = () => {
       <Field>
         <Label>Select member</Label>
         <Select options={options} onChange={(selectionValue) => {
-          if (selectionValue?.label !== undefined) {
+          if (selectionValue.label !== undefined) {
             setRelative(selectionValue.label as string)
             setshouldShowSearchResult(false)
             // console.log(selectionValue.label)
