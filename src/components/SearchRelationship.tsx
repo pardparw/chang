@@ -41,7 +41,7 @@ const SearchRelationship = () => {
     }
 
     SetOption(val)
-  }, [])
+  }, [memberNames])
 
   return (
     <form
