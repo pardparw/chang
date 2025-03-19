@@ -43,6 +43,7 @@ const AddMember = ({ onSubmit, member }: AddMemberProps) => {
         newMember,
         gender as Gender,
         relationship as AllowedRelationship,
+        member.status
       )
 
       if (person) {
